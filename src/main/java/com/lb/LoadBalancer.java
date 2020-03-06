@@ -51,6 +51,8 @@ public class LoadBalancer {
     }
 
 
+    //If Server weights are in order of 10 : 30 : 50 : 20 it can be optimized by finding GCF(Greatest Common factor) and
+    // divide each weight by the GCF so that we can reduce the size of Servers being added to the list.
     private ArrayList<String> serveraList(HashMap<String, Integer> serversWeightMap){
         ArrayList<String> servers = new ArrayList<>();
         for(Map.Entry<String, Integer> data: serversWeightMap.entrySet()){
