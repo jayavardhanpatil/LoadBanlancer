@@ -1,5 +1,6 @@
 package com.lb;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,5 +60,11 @@ public class LoadBalancertest {
         for(int i=0;i<1000;i++) {
             System.out.println("Server : " + loadBalancer.getAssignedServerName_RandomWeight(serversWeights));
         }
+    }
+
+    @Test()
+    public void test_Null_servers(){
+        HashMap<String, Integer> serversWeights = null;
+        Assert.assertEquals("No Server Available to distribute", loadBalancer.getAssignedServerName_RandomWeight(serversWeights));
     }
 }
